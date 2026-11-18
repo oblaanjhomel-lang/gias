@@ -1,0 +1,142 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand: #006b2b;
+  --color-brand-dark: #004d1f;
+  --color-accent: #c9a54e;
+  /* Darker gold for TEXT on light backgrounds (#c9a54e itself is only 2.3:1 on white). */
+  --color-accent-ink: #7a5b14;
+  --color-canvas: #f4f2ee;
+  --color-ink: #14181d;
+
+  --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+}
+
+/* GIS map (Leaflet). Markers are L.divIcon with className "gias-marker". */
+@layer components {
+  .gias-marker {
+    background: transparent;
+    border: 0;
+  }
+
+  .gias-marker:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 9999px;
+  }
+
+  .gias-marker__dot {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgb(20 24 29 / 0.45);
+  }
+
+  .gias-campus {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 24px;
+    border: 2px solid var(--color-accent);
+    border-radius: 6px;
+    background: var(--color-ink);
+    color: #fff;
+    font: 600 11px/1 var(--font-mono);
+    letter-spacing: 0.06em;
+    box-shadow: 0 1px 4px rgb(20 24 29 / 0.45);
+  }
+
+  .gias-home {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background: var(--color-brand-dark);
+    color: #fff;
+    box-shadow: 0 1px 4px rgb(20 24 29 / 0.45);
+  }
+
+  .gias-draft {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 3px solid var(--color-brand);
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.85);
+    box-shadow: 0 0 0 4px rgb(0 107 43 / 0.25);
+  }
+
+  .gias-map--placing,
+  .gias-map--placing .leaflet-interactive {
+    cursor: crosshair;
+  }
+
+  .gias-popup {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-ink);
+    min-width: 200px;
+  }
+
+  .gias-popup__title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .gias-popup__muted {
+    color: rgb(20 24 29 / 0.7);
+  }
+
+  .gias-popup__section {
+    margin-top: 8px;
+  }
+
+  .gias-popup__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(20 24 29 / 0.7);
+  }
+
+  .gias-popup__bar {
+    display: block;
+    height: 4px;
+    margin-top: 4px;
+    border-radius: 9999px;
+    background: rgb(20 24 29 / 0.1);
+    overflow: hidden;
+  }
+
+  .gias-popup__bar > span {
+    display: block;
+    height: 100%;
+  }
+
+  .gias-popup__coords {
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgb(20 24 29 / 0.7);
+  }
+}

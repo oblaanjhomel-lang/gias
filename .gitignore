@@ -1,0 +1,36 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Environment / secrets (keep the .example files)
+.env
+.env.*
+!.env.example
+
+# Build output
+frontend/dist/
+frontend/dist-ssr/
+backend/public/build/
+backend/public/hot
+backend/bootstrap/cache/*.php
+*.tsbuildinfo
+
+# Laravel runtime
+backend/storage/*.key
+backend/storage/logs/*.log
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*.php
+backend/database/*.sqlite
+.phpunit.result.cache
+backend/.phpunit.cache/
+
+# Caches / tooling
+.eslintcache
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
